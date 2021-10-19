@@ -1,0 +1,47 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+
+
+    <!-- Login Form -->
+    <form name="formulario" method="post">
+
+        <p>E-mail</p>
+        <div class="example-container">
+            <mat-form-field appearance="fill">
+                <mat-label>Enter your email</mat-label>
+                <input [(ngModel)]="model.email" class="fadeIn second" name="email" placeholder="email" matInput placeholder="pat@example.com" required>
+                <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+        </div>
+        
+        <p>Password</p>
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label>Enter your password</mat-label>
+                <input [(ngModel)]="model.password" class="fadeIn second" name="password" placeholder="password" matInput [type]="hide ? 'password' : 'text'">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+        </div>
+
+        <div>
+            <button mat-raised-button color="primary" type="submit" (click)="saveForm()" value="Login">Login</button>
+        
+        </div>
+    </form>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover" href="#">Forgot Password?</a>
+    </div>
+
+  </div>
+</div>
+
